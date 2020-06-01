@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FragmentMenu" >
+    tools:context=".Fragments.FragmentMenu" >
 
     <Button
         android:id="@+id/btn_menu_to_func"
