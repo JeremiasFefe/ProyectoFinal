@@ -31,24 +31,20 @@ object DataService {
     val youtubeFunc = listOf(
             Functionality("Uso general"),
             Functionality("Buscar video"),
-            Functionality("Grabar audio"),
-            Functionality("Hacer llamada")
+            Functionality("Explorar")
     )
 
 
     val mapsFunc = listOf(
             Functionality("Uso general"),
             Functionality("Buscar dirección"),
-            Functionality("Grabar audio"),
-            Functionality("Hacer llamada")
+            Functionality("Buscar lugar")
     )
 
 
     val chromeFunc = listOf(
             Functionality("Uso general"),
-            Functionality("Usar buscador"),
-            Functionality("Grabar audio"),
-            Functionality("Hacer llamada")
+            Functionality("Usar buscador")
     )
 
     fun getFunctionalities(app: String): List<Functionality>{
