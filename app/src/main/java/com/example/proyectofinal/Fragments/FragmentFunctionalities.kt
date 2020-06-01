@@ -14,20 +14,10 @@ import com.example.proyectofinal.R
  */
 class FragmentFunctionalities : Fragment() {
     lateinit var v: View
-    lateinit var btnFuncToExpl: Button
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_functionalities, container, false)
-        btnFuncToExpl = v.findViewById(R.id.btn_func_to_expl)
         return v
-    }
-
-    override fun onStart() {
-        super.onStart()
-        btnFuncToExpl.setOnClickListener { v ->
-            val action = FragmentFunctionalitiesDirections.actionFunctionalitiesFragmentToExplanationFragment()
-            v.findNavController().navigate(action)
-        }
     }
 }

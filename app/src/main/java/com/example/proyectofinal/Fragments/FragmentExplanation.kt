@@ -13,13 +13,11 @@ import com.example.proyectofinal.R
  */
 class FragmentExplanation : Fragment() {
     lateinit var v: View
-    lateinit var TxtExplanation: TextView
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_explanation, container, false)
-        TxtExplanation = v.findViewById(R.id.txt_explanation)
-        TxtExplanation.text = "Explanation Fragment"
         return v
+
     }
 }

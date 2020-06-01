@@ -1,34 +1,39 @@
 package com.example.proyectofinal.Fragments
 
+import android.app.Activity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.proyectofinal.Adapters.AppsAdapter
 import com.example.proyectofinal.R
+import com.example.proyectofinal.Services.DataService
+import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.fragment_menu.*
 
 /**
  * A simple [Fragment] subclass.
  */
 class FragmentMenu : Fragment() {
-    lateinit var v: View
-    lateinit var btnMenuToFunc: Button
+    private lateinit var v: View
+    private lateinit var adapter: AppsAdapter
+    lateinit var recyclerView: RecyclerView
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_menu, container, false)
-        btnMenuToFunc = v.findViewById(R.id.btn_menu_to_func)
-        return v
-    }
 
-    override fun onStart() {
-        super.onStart()
-        btnMenuToFunc.setOnClickListener { v ->
-            val action = FragmentMenuDirections.actionMenuFragmentToFunctionalitiesFragment()
-            v.findNavController().navigate(action)
-        }
+        recyclerView = v.findViewById(R.id.appListView)
+
+        recyclerView.layoutManager = GridLayoutManager(activity,2)
+
+        adapter = context?.let { AppsAdapter(it,DataService.apps) }!!
+
+        recyclerView.adapter = adapter
+        return v
     }
 }

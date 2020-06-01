@@ -6,9 +6,18 @@ import com.example.proyectofinal.Model.Functionality
 object DataService {
     val apps = listOf(
             App("Whatsapp","whatsapp"),
-            App("YouTube","youtube"),
-            App("Google Maps","maps"),
-            App("Google Chrome","chrome")
+            App("YouTube","whatsapp"),
+            App("Google Maps","whatsapp"),
+            App("Google Chrome","whatsapp"),
+            App("Whatsapp","whatsapp"),
+            App("YouTube","whatsapp"),
+            App("Google Maps","whatsapp"),
+            App("Google Chrome","whatsapp"),
+            App("Whatsapp","whatsapp"),
+            App("YouTube","whatsapp"),
+            App("Google Maps","whatsapp"),
+            App("Google Chrome","whatsapp")
+
     )
 
     val whatsappFunc = listOf(
