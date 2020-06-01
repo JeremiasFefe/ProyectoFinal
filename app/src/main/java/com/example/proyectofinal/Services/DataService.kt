@@ -50,4 +50,13 @@ object DataService {
             Functionality("Grabar audio"),
             Functionality("Hacer llamada")
     )
+
+    fun getFunctionalities(app: String): List<Functionality>{
+        return when(app){
+            "Whatsapp" -> whatsappFunc
+            "YouTube" -> youtubeFunc
+            "Google Maps"-> mapsFunc
+            else -> chromeFunc
+        }
+    }
 }
