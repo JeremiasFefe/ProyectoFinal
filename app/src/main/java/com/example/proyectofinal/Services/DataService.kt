@@ -8,8 +8,8 @@ object DataService {
             App("Whatsapp","whatsapp"),
             App("YouTube","youtube"),
             App("Netflix","netflix"),
-            App("Google Maps","maps"),
-            App("Google Chrome","chrome")
+            App("Google Maps","maps")
+            //App("Google Chrome","chrome")
     )
 
     private val whatsappFunc = listOf(
