@@ -6,21 +6,13 @@ import com.example.proyectofinal.Model.Functionality
 object DataService {
     val apps = listOf(
             App("Whatsapp","whatsapp"),
-            App("YouTube","whatsapp"),
-            App("Google Maps","whatsapp"),
-            App("Google Chrome","whatsapp"),
-            App("Whatsapp","whatsapp"),
-            App("YouTube","whatsapp"),
-            App("Google Maps","whatsapp"),
-            App("Google Chrome","whatsapp"),
-            App("Whatsapp","whatsapp"),
-            App("YouTube","whatsapp"),
-            App("Google Maps","whatsapp"),
-            App("Google Chrome","whatsapp")
-
+            App("YouTube","youtube"),
+            App("Netflix","netflix"),
+            App("Google Maps","maps"),
+            App("Google Chrome","chrome")
     )
 
-    val whatsappFunc = listOf(
+    private val whatsappFunc = listOf(
             Functionality("Uso general"),
             Functionality("Mandar mensaje"),
             Functionality("Grabar audio"),
@@ -28,23 +20,29 @@ object DataService {
     )
 
 
-    val youtubeFunc = listOf(
+    private val youtubeFunc = listOf(
             Functionality("Uso general"),
             Functionality("Buscar video"),
             Functionality("Explorar")
     )
 
 
-    val mapsFunc = listOf(
+    private val mapsFunc = listOf(
             Functionality("Uso general"),
             Functionality("Buscar dirección"),
             Functionality("Buscar lugar")
     )
 
 
-    val chromeFunc = listOf(
+    private val chromeFunc = listOf(
             Functionality("Uso general"),
             Functionality("Usar buscador")
+    )
+
+    private val netflixFunc = listOf(
+            Functionality("Uso general"),
+            Functionality("Buscar película"),
+            Functionality("Tv")
     )
 
     fun getFunctionalities(app: String): List<Functionality>{
@@ -52,6 +50,7 @@ object DataService {
             "Whatsapp" -> whatsappFunc
             "YouTube" -> youtubeFunc
             "Google Maps"-> mapsFunc
+            "Netflix" -> netflixFunc
             else -> chromeFunc
         }
     }
