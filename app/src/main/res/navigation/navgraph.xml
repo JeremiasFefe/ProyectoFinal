@@ -37,4 +37,8 @@
         <argument android:name="strAppName"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentContact"
+        android:name="com.example.proyectofinal.Fragments.FragmentContact"
+        android:label="FragmentContact" />
 </navigation>
