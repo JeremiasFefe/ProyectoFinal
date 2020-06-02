@@ -2,9 +2,9 @@ package com.example.proyectofinal.Fragments
 
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.example.proyectofinal.R
 import kotlinx.android.synthetic.main.fragment_explanation.*
 
@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_explanation.*
  * A simple [Fragment] subclass.
  */
 class FragmentExplanation : Fragment() {
-    lateinit var v: View
+    private lateinit var v: View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -47,9 +47,19 @@ class FragmentExplanation : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
-            R.id.settings_item -> Toast.makeText(activity, "settings", Toast.LENGTH_SHORT).show()
-            R.id.info_item -> Toast.makeText(activity, "info", Toast.LENGTH_SHORT).show()
-            R.id.contact_item -> Toast.makeText(activity, "info", Toast.LENGTH_SHORT).show()
+            R.id.settings_item -> {
+                val action = FragmentExplanationDirections.actionExplanationFragmentToFragmentSettings()
+                Navigation.findNavController(v).navigate(action)
+            }
+            R.id.info_item -> {
+                val action = FragmentExplanationDirections.actionExplanationFragmentToFragmentInfo()
+                Navigation.findNavController(v).navigate(action)
+            }
+            R.id.contact_item -> {
+                val action = FragmentExplanationDirections.actionExplanationFragmentToFragmentContact()
+                Navigation.findNavController(v).navigate(action)
+            }
+
             else -> Toast.makeText(activity,"not working", Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)

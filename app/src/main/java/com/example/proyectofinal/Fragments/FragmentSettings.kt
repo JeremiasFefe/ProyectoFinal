@@ -27,10 +27,6 @@ class FragmentSettings : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        val appSelected = FragmentExplanationArgs.fromBundle(requireArguments()).strAppName
-        val functionalitySelected = FragmentExplanationArgs.fromBundle(requireArguments()).strFunctionality
 
-        txtFuncName.text = functionalitySelected
-        txtAppName.text = appSelected
     }
 }

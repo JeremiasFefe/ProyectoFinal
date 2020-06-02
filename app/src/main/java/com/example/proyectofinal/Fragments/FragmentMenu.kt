@@ -58,9 +58,19 @@ class FragmentMenu : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
-            R.id.settings_item -> Toast.makeText(activity, "settings", Toast.LENGTH_SHORT).show()
-            R.id.info_item -> Toast.makeText(activity, "info", Toast.LENGTH_SHORT).show()
-            R.id.contact_item -> Toast.makeText(activity, "info", Toast.LENGTH_SHORT).show()
+            R.id.settings_item -> {
+                val action = FragmentMenuDirections.actionMenuFragmentToFragmentSettings()
+                Navigation.findNavController(v).navigate(action)
+            }
+            R.id.info_item -> {
+                val action = FragmentMenuDirections.actionMenuFragmentToFragmentInfo()
+                Navigation.findNavController(v).navigate(action)
+            }
+            R.id.contact_item -> {
+                val action = FragmentMenuDirections.actionMenuFragmentToFragmentContact()
+                Navigation.findNavController(v).navigate(action)
+            }
+
             else -> Toast.makeText(activity,"not working", Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)

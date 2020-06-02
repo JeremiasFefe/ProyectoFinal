@@ -13,6 +13,15 @@
         <action
             android:id="@+id/action_menuFragment_to_functionalitiesFragment"
             app:destination="@id/functionalitiesFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_fragmentContact"
+            app:destination="@id/fragmentContact" />
+        <action
+            android:id="@+id/action_menuFragment_to_fragmentInfo"
+            app:destination="@id/fragmentInfo" />
+        <action
+            android:id="@+id/action_menuFragment_to_fragmentSettings"
+            app:destination="@id/fragmentSettings" />
     </fragment>
     <fragment
         android:id="@+id/functionalitiesFragment"
@@ -25,6 +34,15 @@
         <argument
             android:name="strAppName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_functionalitiesFragment_to_fragmentContact"
+            app:destination="@id/fragmentContact" />
+        <action
+            android:id="@+id/action_functionalitiesFragment_to_fragmentInfo"
+            app:destination="@id/fragmentInfo" />
+        <action
+            android:id="@+id/action_functionalitiesFragment_to_fragmentSettings"
+            app:destination="@id/fragmentSettings" />
     </fragment>
     <fragment
         android:id="@+id/explanationFragment"
@@ -36,9 +54,47 @@
             app:argType="string" />
         <argument android:name="strAppName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_explanationFragment_to_fragmentContact"
+            app:destination="@id/fragmentContact" />
+        <action
+            android:id="@+id/action_explanationFragment_to_fragmentInfo"
+            app:destination="@id/fragmentInfo" />
+        <action
+            android:id="@+id/action_explanationFragment_to_fragmentSettings"
+            app:destination="@id/fragmentSettings" />
     </fragment>
     <fragment
         android:id="@+id/fragmentContact"
         android:name="com.example.proyectofinal.Fragments.FragmentContact"
-        android:label="FragmentContact" />
+        android:label="FragmentContact" >
+        <action
+            android:id="@+id/action_fragmentContact_to_fragmentInfo"
+            app:destination="@id/fragmentInfo" />
+        <action
+            android:id="@+id/action_fragmentContact_to_fragmentSettings"
+            app:destination="@id/fragmentSettings" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentInfo"
+        android:name="com.example.proyectofinal.Fragments.FragmentInfo"
+        android:label="FragmentInfo" >
+        <action
+            android:id="@+id/action_fragmentInfo_to_fragmentContact"
+            app:destination="@id/fragmentContact" />
+        <action
+            android:id="@+id/action_fragmentInfo_to_fragmentSettings"
+            app:destination="@id/fragmentSettings" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSettings"
+        android:name="com.example.proyectofinal.Fragments.FragmentSettings"
+        android:label="FragmentSettings" >
+        <action
+            android:id="@+id/action_fragmentSettings_to_fragmentContact"
+            app:destination="@id/fragmentContact" />
+        <action
+            android:id="@+id/action_fragmentSettings_to_fragmentInfo"
+            app:destination="@id/fragmentInfo" />
+    </fragment>
 </navigation>
