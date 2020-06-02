@@ -30,5 +30,11 @@
         android:id="@+id/explanationFragment"
         android:name="com.example.proyectofinal.Fragments.FragmentExplanation"
         android:label="fragment_explanation"
-        tools:layout="@layout/fragment_explanation" />
+        tools:layout="@layout/fragment_explanation" >
+        <argument
+            android:name="strFunctionality"
+            app:argType="string" />
+        <argument android:name="strAppName"
+            app:argType="string" />
+    </fragment>
 </navigation>

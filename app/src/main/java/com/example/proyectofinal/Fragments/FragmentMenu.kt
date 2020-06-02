@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectofinal.Adapters.AppsAdapter
 import com.example.proyectofinal.R
 import com.example.proyectofinal.Services.DataService
+import kotlinx.android.synthetic.main.fragment_menu.*
 
 /**
  * A simple [Fragment] subclass.
@@ -24,7 +25,7 @@ class FragmentMenu : Fragment() {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_menu, container, false)
 
-        recyclerView = v.findViewById(R.id.appListView)
+        recyclerView = v.findViewById(R.id.txtWelcome)
 
         recyclerView.layoutManager = GridLayoutManager(activity,2)
 
@@ -36,6 +37,7 @@ class FragmentMenu : Fragment() {
         }!!
 
         recyclerView.adapter = adapter
+
         return v
     }
 }
