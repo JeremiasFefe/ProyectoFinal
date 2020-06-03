@@ -2,9 +2,9 @@ package com.example.proyectofinal.Fragments
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.proyectofinal.R
 import kotlinx.android.synthetic.main.fragment_explanation.*
 
@@ -19,6 +19,7 @@ class FragmentExplanation : Fragment() {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_explanation, container, false)
 
+        setHasOptionsMenu(true)
         return v
 
     }
@@ -33,36 +34,15 @@ class FragmentExplanation : Fragment() {
         txtAppName.text = appSelected
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        setHasOptionsMenu(true)
-        super.onCreate(savedInstanceState)
-    }
-
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.main_menu,menu)
         super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.main_menu,menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        when (item.itemId) {
-            R.id.settings_item -> {
-                val action = FragmentExplanationDirections.actionExplanationFragmentToFragmentSettings()
-                Navigation.findNavController(v).navigate(action)
-            }
-            R.id.info_item -> {
-                val action = FragmentExplanationDirections.actionExplanationFragmentToFragmentInfo()
-                Navigation.findNavController(v).navigate(action)
-            }
-            R.id.contact_item -> {
-                val action = FragmentExplanationDirections.actionExplanationFragmentToFragmentContact()
-                Navigation.findNavController(v).navigate(action)
-            }
-
-            else -> Toast.makeText(activity,"not working", Toast.LENGTH_SHORT).show()
-        }
-        return super.onOptionsItemSelected(item)
+        return NavigationUI.onNavDestinationSelected(item,view!!.findNavController())
+                || super.onOptionsItemSelected(item)
 
     }
 }
