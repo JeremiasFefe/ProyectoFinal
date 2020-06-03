@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textViewStyle">@style/MontserratTextViewStyle</item>
         <item name="android:buttonStyle">@style/MontserratButtonStyle</item>
+
     </style>
     <style name="MontserratTextViewStyle" parent="android:Widget.TextView">
         <item name="android:fontFamily">@font/montserrat</item>
