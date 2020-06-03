@@ -1,6 +1,7 @@
 package com.example.proyectofinal.Fragments
 
 import android.annotation.SuppressLint
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -31,7 +32,9 @@ class FragmentMenu : Fragment() {
 
         recyclerView = v.findViewById(R.id.txtDescrMenu)
 
-        recyclerView.layoutManager = GridLayoutManager(activity,2)
+        var spanCount = 2
+
+        recyclerView.layoutManager = GridLayoutManager(activity,spanCount)
 
         adapter = context?.let {
             AppsAdapter(it,DataService.apps){app->
