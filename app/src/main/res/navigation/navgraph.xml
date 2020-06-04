@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_menuFragment_to_functionalitiesFragment"
-            app:destination="@id/functionalitiesFragment" />
+            app:destination="@id/functionalitiesFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:popEnterAnim="@anim/fragment_close_enter" />
     </fragment>
     <fragment
         android:id="@+id/functionalitiesFragment"
@@ -21,7 +23,9 @@
         tools:layout="@layout/fragment_functionalities">
         <action
             android:id="@+id/action_functionalitiesFragment_to_explanationFragment"
-            app:destination="@id/explanationFragment" />
+            app:destination="@id/explanationFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:popEnterAnim="@anim/fragment_close_enter" />
         <argument
             android:name="strAppName"
             app:argType="string" />

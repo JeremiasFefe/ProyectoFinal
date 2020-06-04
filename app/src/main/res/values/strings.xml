@@ -8,4 +8,6 @@
     <string name="contacto">Contacto</string>
     <string name="info">Información</string>
     <string name="pregunta_bienvenida">¿Qué app te gustaría aprender?</string>
+    <string name="settings">Ajustes</string>
+    <string name="contact">Contacto</string>
 </resources>
