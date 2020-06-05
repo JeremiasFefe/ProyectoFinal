@@ -8,20 +8,6 @@
     tools:context=".Fragments.FragmentExplanation" >
 
     <TextView
-        android:id="@+id/txtAppName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
-        android:textColor="@color/colorBlack"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="AppName" />
-
-    <TextView
         android:id="@+id/txtFuncName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,13 +16,13 @@
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAppName"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="functionality" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/explanationRecyclerView"
-        android:layout_width="409dp"
-        android:layout_height="556dp"
+        android:layout_width="381dp"
+        android:layout_height="660dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
