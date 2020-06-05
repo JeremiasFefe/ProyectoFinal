@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectofinal.Adapters.ExplanationStepsAdapter
 import com.example.proyectofinal.Model.ExplanationStep
 import com.example.proyectofinal.R
-import com.example.proyectofinal.Services.DataService
 
 /**
  * A simple [Fragment] subclass.
@@ -35,24 +34,11 @@ class FragmentExplanation : Fragment() {
         txtFuncName = v.findViewById(R.id.txtFuncName)
 
         val args = FragmentExplanationArgs.fromBundle(requireArguments())
+        val functionalitySelected = args.functionality
+        steps = functionalitySelected.explanationSteps
 
-        val appSelected = args.strAppName
-        val functionalitySelected = args.strFunctionality
 
-        for (App in DataService.apps){
-            if (App.name == appSelected){
-                val functionalities = DataService.getFunctionalities(App.name)
-                for (Function in functionalities){
-                    if (Function.title == functionalitySelected){
-                        steps = Function.explanationSteps
-                    }
-                }
-            }
-        }
-        //Log.d("test", steps[0].stepDescription)
-
-        txtFuncName.text = functionalitySelected
-        //txtAppName.text = appSelected
+        txtFuncName.text = functionalitySelected.title
 
         recyclerView.layoutManager = GridLayoutManager(activity,1)
 

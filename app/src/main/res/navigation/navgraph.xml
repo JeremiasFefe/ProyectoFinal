@@ -36,8 +36,8 @@
         android:label="Explicación"
         tools:layout="@layout/fragment_explanation">
         <argument
-            android:name="strFunctionality"
-            app:argType="string" />
+            android:name="Functionality"
+            app:argType="com.example.proyectofinal.Model.Functionality" />
         <argument
             android:name="strAppName"
             app:argType="string" />

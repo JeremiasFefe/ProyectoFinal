@@ -34,7 +34,7 @@ class FragmentFunctionalities : Fragment() {
         val appSelected = FragmentFunctionalitiesArgs.fromBundle(requireArguments()).strAppName
         adapter = context?.let {
             FuncsAdapter(it,DataService.getFunctionalities(appSelected)){Functionality ->
-                val action = FragmentFunctionalitiesDirections.actionFunctionalitiesFragmentToExplanationFragment(Functionality.title, appSelected)
+                val action = FragmentFunctionalitiesDirections.actionFunctionalitiesFragmentToExplanationFragment(Functionality, appSelected)
                 Navigation.findNavController(v).navigate(action)
             }
         }!!
