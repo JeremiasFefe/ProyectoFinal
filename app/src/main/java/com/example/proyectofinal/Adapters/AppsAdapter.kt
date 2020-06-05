@@ -26,8 +26,8 @@ class AppsAdapter(private val context: Context, private val apps: List<App>, val
     }
 
     inner class AppHolder(itemView: View, val itemClick: (App) -> Unit) : RecyclerView.ViewHolder(itemView){
-        private val appImage: ImageView = itemView.findViewById(R.id.appImage)
-        private val appName:TextView = itemView.findViewById(R.id.appName)
+        private val appImage: ImageView = itemView.findViewById(R.id.stepImage)
+        private val appName:TextView = itemView.findViewById(R.id.txtStepDesc)
 
         fun bindApp(app:App,context: Context){
             val resourceId = context.resources.getIdentifier(app.image,"drawable", context.packageName)

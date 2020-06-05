@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
         android:textColor="@color/colorBlack"
         android:textSize="28sp"
@@ -25,11 +25,24 @@
         android:id="@+id/txtFuncName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:textColor="@color/colorBlack"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtAppName"
         tools:text="functionality" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/explanationRecyclerView"
+        android:layout_width="409dp"
+        android:layout_height="556dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFuncName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.example.proyectofinal.Services
 
 import com.example.proyectofinal.Model.App
+import com.example.proyectofinal.Model.ExplanationStep
 import com.example.proyectofinal.Model.Functionality
 
 object DataService {
@@ -12,37 +13,43 @@ object DataService {
             //App("Google Chrome","chrome")
     )
 
+    private val whatsappUsoGeneralExplanation = listOf(
+            ExplanationStep("1","test_image", "Descripción de prueba"),
+            ExplanationStep("2","test_image", "Descripción de prueba"),
+            ExplanationStep("3","test_image", "Descripción de prueba")
+    )
+
     private val whatsappFunc = listOf(
-            Functionality("Uso general"),
-            Functionality("Mandar mensaje"),
-            Functionality("Grabar audio"),
-            Functionality("Hacer llamada")
+            Functionality("Uso general", whatsappUsoGeneralExplanation),
+            Functionality("Mandar mensaje",whatsappUsoGeneralExplanation),
+            Functionality("Grabar audio",whatsappUsoGeneralExplanation),
+            Functionality("Hacer llamada",whatsappUsoGeneralExplanation)
     )
 
 
     private val youtubeFunc = listOf(
-            Functionality("Uso general"),
-            Functionality("Buscar video"),
-            Functionality("Explorar")
+            Functionality("Uso general",whatsappUsoGeneralExplanation),
+            Functionality("Buscar video",whatsappUsoGeneralExplanation),
+            Functionality("Explorar",whatsappUsoGeneralExplanation)
     )
 
 
     private val mapsFunc = listOf(
-            Functionality("Uso general"),
-            Functionality("Buscar dirección"),
-            Functionality("Buscar lugar")
+            Functionality("Uso general",whatsappUsoGeneralExplanation),
+            Functionality("Buscar dirección",whatsappUsoGeneralExplanation),
+            Functionality("Buscar lugar",whatsappUsoGeneralExplanation)
     )
 
 
     private val chromeFunc = listOf(
-            Functionality("Uso general"),
-            Functionality("Usar buscador")
+            Functionality("Uso general",whatsappUsoGeneralExplanation),
+            Functionality("Usar buscador",whatsappUsoGeneralExplanation)
     )
 
     private val netflixFunc = listOf(
-            Functionality("Uso general"),
-            Functionality("Buscar película"),
-            Functionality("Tv")
+            Functionality("Uso general",whatsappUsoGeneralExplanation),
+            Functionality("Buscar película",whatsappUsoGeneralExplanation),
+            Functionality("Tv",whatsappUsoGeneralExplanation)
     )
 
     fun getFunctionalities(app: String): List<Functionality>{
