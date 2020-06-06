@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectofinal.Model.Functionality
@@ -28,7 +27,7 @@ class FuncsAdapter(private val context: Context, private val funcs:List<Function
     }
 
     inner class FuncHolder(itemView: View, itemClick: (Functionality) -> Unit) : RecyclerView.ViewHolder(itemView){
-        val funcTxt: TextView = itemView.findViewById(R.id.txtFunc)
+        private val funcTxt: TextView = itemView.findViewById(R.id.txtFunc)
 
         fun bindFunc(func:Functionality,context: Context){
             funcTxt.text = func.title

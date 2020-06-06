@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectofinal.Model.App
 import com.example.proyectofinal.R
 
-class AppsAdapter(private val context: Context, private val apps: List<App>, val itemClick: (App) -> Unit): RecyclerView.Adapter<AppsAdapter.AppHolder>() {
+class AppsAdapter(private val context: Context, private val apps: List<App>, private val itemClick: (App) -> Unit): RecyclerView.Adapter<AppsAdapter.AppHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.app_list_item,parent,false)

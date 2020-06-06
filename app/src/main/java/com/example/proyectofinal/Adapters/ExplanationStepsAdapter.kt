@@ -1,5 +1,6 @@
 package com.example.proyectofinal.Adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -33,7 +34,8 @@ class ExplanationStepsAdapter(private val context: Context, private val steps:Li
         private val stepDesc: TextView = itemView.findViewById(R.id.txtStepDesc)
         private val paso:String = "Paso "
 
-        fun bindStep(step: ExplanationStep,context: Context){
+        @SuppressLint("SetTextI18n")
+        fun bindStep(step: ExplanationStep, context: Context){
             val resourceId = context.resources.getIdentifier(step.stepImage,"drawable",context.packageName)
             stepImage.setImageResource(resourceId)
             stepNumber.text = paso+step.stepNumber

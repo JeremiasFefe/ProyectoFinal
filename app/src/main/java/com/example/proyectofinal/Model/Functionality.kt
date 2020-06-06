@@ -4,10 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class Functionality(val title: String?, val explanationSteps: List<ExplanationStep>) : Parcelable {
-    constructor(parcel: Parcel) : this(
-            parcel.readString(),
-            TODO("explanationSteps")) {
-    }
+    constructor(parcel: Parcel) : this(parcel.readString(), TODO("explanationSteps"))
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(title)
