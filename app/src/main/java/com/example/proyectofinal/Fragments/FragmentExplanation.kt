@@ -19,7 +19,7 @@ class FragmentExplanation : Fragment() {
     private lateinit var v: View
     private lateinit var adapter: ExplanationStepsAdapter
     private lateinit var recyclerView: RecyclerView
-    private lateinit var txtFuncName:TextView
+    private lateinit var txtFuncName: TextView
     //private lateinit var txtAppName:TextView
 
     private lateinit var steps:List<ExplanationStep>
