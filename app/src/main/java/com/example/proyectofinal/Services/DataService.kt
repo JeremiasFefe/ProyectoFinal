@@ -6,7 +6,7 @@ import com.example.proyectofinal.Model.Functionality
 
 object DataService {
     val apps = listOf(
-            App("Whatsapp","whatsapp"),
+            App("WhatsApp","whatsapp"),
             App("YouTube","youtube"),
             App("Netflix","netflix"),
             App("Google Maps","maps")
@@ -54,7 +54,7 @@ object DataService {
 
     fun getFunctionalities(app: String): List<Functionality>{
         return when(app){
-            "Whatsapp" -> whatsappFunc
+            "WhatsApp" -> whatsappFunc
             "YouTube" -> youtubeFunc
             "Google Maps"-> mapsFunc
             "Netflix" -> netflixFunc
