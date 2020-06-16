@@ -30,6 +30,8 @@ class FragmentExplanation : Fragment() {
         v = inflater.inflate(R.layout.fragment_explanation, container, false)
 
         recyclerView = v.findViewById(R.id.explanationRecyclerView)
+        recyclerView.setHasFixedSize(true)
+
         //txtAppName = v.findViewById(R.id.txtAppName)
         txtFuncName = v.findViewById(R.id.txtFuncName)
 

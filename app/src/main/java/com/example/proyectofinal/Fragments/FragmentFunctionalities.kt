@@ -28,6 +28,9 @@ class FragmentFunctionalities : Fragment() {
         v = inflater.inflate(R.layout.fragment_functionalities, container, false)
 
         recyclerView = v.findViewById(R.id.funcListView)
+        recyclerView.setHasFixedSize(true)
+
+
         txtFunc= v.findViewById(R.id.txtFunc)
         recyclerView.layoutManager = GridLayoutManager(activity,1)
 

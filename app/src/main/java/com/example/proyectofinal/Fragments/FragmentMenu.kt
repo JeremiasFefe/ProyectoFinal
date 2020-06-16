@@ -29,6 +29,7 @@ class FragmentMenu : Fragment() {
 
         recyclerView = v.findViewById(R.id.txtDescrMenu)
 
+        recyclerView.setHasFixedSize(true)
         var spanCount = 2
 
         recyclerView.layoutManager = GridLayoutManager(activity,spanCount)

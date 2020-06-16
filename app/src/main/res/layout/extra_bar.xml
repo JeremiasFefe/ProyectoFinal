@@ -19,22 +19,20 @@
         android:id="@+id/ds_text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="left" 
+        android:gravity="start"
         android:layout_gravity="center" 
         android:textColor="#ffffffff"
         android:textSize="14sp"
         android:padding="2dp"
         android:text="Double Star on Google Play"
-        android:onClick="onClickWglxy"
-        android:clickable="true"
-        android:visibility="visible" />
+        android:visibility="visible"
+		  android:focusable="true" />
       <ImageView 
 	      android:id="@+id/download_icon"
 	      android:src="@drawable/download_icon"
 	      android:layout_width="32dp"
 	      android:layout_height="32dp" 
 	      android:layout_gravity="right|center_vertical"
-         android:onClick="onClickWglxy"
 
          />
 </FrameLayout>
