@@ -36,7 +36,7 @@ class FragmentMenu : Fragment() {
 
         adapter = context?.let {
             AppsAdapter(it,DataService.apps){app->
-                val action = FragmentMenuDirections.actionMenuFragmentToFunctionalitiesFragment(app.name)
+                val action = FragmentMenuDirections.actionMenuFragmentToFunctionalitiesFragment(app)
                 Navigation.findNavController(v).navigate(action)
             }
         }!!

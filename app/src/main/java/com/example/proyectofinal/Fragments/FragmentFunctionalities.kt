@@ -2,6 +2,7 @@ package com.example.proyectofinal.Fragments
 
 import android.os.Bundle
 import android.view.*
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -21,6 +22,7 @@ class FragmentFunctionalities : Fragment() {
     private lateinit var adapter: FuncsAdapter
     private lateinit var recyclerView: RecyclerView
     private lateinit var txtFunc: TextView
+    private lateinit var imgAppLogo:ImageView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -32,18 +34,23 @@ class FragmentFunctionalities : Fragment() {
 
 
         txtFunc= v.findViewById(R.id.txtFunc)
+        imgAppLogo = v.findViewById(R.id.imgAppLogo)
         recyclerView.layoutManager = GridLayoutManager(activity,1)
 
-        val appSelected = FragmentFunctionalitiesArgs.fromBundle(requireArguments()).strAppName
+        val appSelected = FragmentFunctionalitiesArgs.fromBundle(requireArguments()).appSelected
         adapter = context?.let {
-            FuncsAdapter(it,DataService.getFunctionalities(appSelected)){Functionality ->
-                val action = FragmentFunctionalitiesDirections.actionFunctionalitiesFragmentToExplanationFragment(Functionality, appSelected)
-                Navigation.findNavController(v).navigate(action)
+            appSelected.name?.let { it1 -> DataService.getFunctionalities(it1) }?.let { it2 ->
+                FuncsAdapter(it, it2){ Functionality ->
+                    val action = FragmentFunctionalitiesDirections.actionFunctionalitiesFragmentToExplanationFragment(Functionality, appSelected.name)
+                    Navigation.findNavController(v).navigate(action)
+                }
             }
         }!!
 
         recyclerView.adapter = adapter
-        txtFunc.text = appSelected
+        txtFunc.text = appSelected.name
+        val resourceId = v.resources.getIdentifier(appSelected.image,"drawable", requireContext().packageName)
+        imgAppLogo.setImageResource(resourceId)
 
         setHasOptionsMenu(true)
 

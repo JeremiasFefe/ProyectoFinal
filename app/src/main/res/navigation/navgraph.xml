@@ -27,8 +27,8 @@
             app:enterAnim="@anim/fragment_close_enter"
             app:popEnterAnim="@anim/fragment_close_enter" />
         <argument
-            android:name="strAppName"
-            app:argType="string" />
+            android:name="AppSelected"
+            app:argType="com.example.proyectofinal.Model.App" />
     </fragment>
     <fragment
         android:id="@+id/explanationFragment"
