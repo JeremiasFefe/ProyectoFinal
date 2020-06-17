@@ -23,7 +23,7 @@ class TestActivity : AppCompatActivity(), View.OnTouchListener   {
         val evX = ev.x.toInt()
         val evY = ev.y.toInt()
 
-        val touchColor: Int = getHotspotColor(R.id.image_areas, evX, evY)
+        val touchColor: Int = getHotspotColor(R.id.maskImage, evX, evY)
 
         val ct = ColorTool()
         val tolerance = 25
