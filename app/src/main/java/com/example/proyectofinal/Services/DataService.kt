@@ -15,7 +15,9 @@ object DataService {
 
     private val whatsappUsoGeneralExplanation = listOf(
             ExplanationStep("1","test_image","test_mask", "este es el primer texto"),
-            ExplanationStep("2","test_image", "test_mask", "segundo"),
+            ExplanationStep("2","whatsapp2", "test_mask", "segundo"),
+            ExplanationStep("3","test_image", "test_mask", "tercero"),
+            ExplanationStep("2","whatsapp2", "test_mask", "segundo"),
             ExplanationStep("3","test_image", "test_mask", "tercero")
     )
 
