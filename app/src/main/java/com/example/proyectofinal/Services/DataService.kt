@@ -13,6 +13,11 @@ object DataService {
             //App("Google Chrome","chrome")
     )
 
+    private val mapsBarraBuscadora = listOf(
+            ExplanationStep("1","googlemaps_1","googlemaps_1_mask",""),
+            ExplanationStep("1","googlemaps_2","googlemaps_1_mask","")
+    )
+
     private val whatsappUsoGeneralExplanation = listOf(
             ExplanationStep("1","test_image","mask1", "este es el primer texto"),
             ExplanationStep("2","whatsapp2", "mask2", "segundo"),
@@ -36,7 +41,7 @@ object DataService {
 
 
     private val mapsFunc = listOf(
-            Functionality("Uso general",whatsappUsoGeneralExplanation),
+            Functionality("Uso general", mapsBarraBuscadora),
             Functionality("Buscar dirección",whatsappUsoGeneralExplanation),
             Functionality("Buscar lugar",whatsappUsoGeneralExplanation)
     )
