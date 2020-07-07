@@ -5,7 +5,8 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.FragmentMenu" >
+    android:background="#FFFFFF"
+    tools:context=".Fragments.FragmentMenu">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/txtDescrMenu"
@@ -15,6 +16,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
