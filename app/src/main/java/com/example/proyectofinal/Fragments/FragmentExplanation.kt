@@ -11,6 +11,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.bumptech.glide.Glide
 import com.example.proyectofinal.ColorTool
 import com.example.proyectofinal.R
 import kotlin.properties.Delegates
@@ -41,13 +42,12 @@ class FragmentExplanation : Fragment() {
         stepImage = v.findViewById(R.id.stepImage)
         maskImage = v.findViewById(R.id.maskImage)
 
-        imageId = context?.resources?.getIdentifier(steps[position].stepImage,"drawable", requireContext().packageName)!!
-        stepImage.setImageResource(imageId)
-
-        
-        maskId = context?.resources?.getIdentifier(steps[position].stepMask,"drawable", requireContext().packageName)!!
-        maskImage.setImageResource(maskId)
-
+        //imageId = context?.resources?.getIdentifier(steps[position].stepImage,"drawable", requireContext().packageName)!!
+        Glide.with(this).load(steps[position].stepImage).centerCrop().into(stepImage)
+        //stepImage.setImageResource(imageId)
+        //maskId = context?.resources?.getIdentifier(steps[position].stepMask,"drawable", requireContext().packageName)!!
+        //maskImage.setImageResource(maskId)
+        Glide.with(this).load(steps[position].stepMask).centerCrop().into(maskImage)
         position+=1
 
         setHasOptionsMenu(true)
