@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1049153679613",
+    "firebase_url": "https://aprendapp-7fba8.firebaseio.com",
+    "project_id": "aprendapp-7fba8",
+    "storage_bucket": "aprendapp-7fba8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049153679613:android:b2a79861f5c7636eb10e94",
+        "android_client_info": {
+          "package_name": "com.example.proyectofinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1049153679613-ejkcme3nj2vh9qhap2vaj3ik5oju6kee.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUeF4ei5oStWmDc3TTIzuSsx2YM-5dU2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1049153679613-ejkcme3nj2vh9qhap2vaj3ik5oju6kee.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

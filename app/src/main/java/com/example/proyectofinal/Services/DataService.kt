@@ -14,8 +14,8 @@ object DataService {
     )
 
     private val mapsBarraBuscadora = listOf(
-            ExplanationStep("1","googlemaps_1","googlemaps_1_mask",""),
-            ExplanationStep("1","googlemaps_2","googlemaps_1_mask","")
+            ExplanationStep("1","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/googlemaps_1.jpeg?alt=media&token=3b98aadc-277e-4cdd-aa83-658947c643a3","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/googlemaps_1_mask.jpg?alt=media&token=c398ebe0-c899-4cea-837f-72820d77b509",""),
+            ExplanationStep("2","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/googlemaps_1.jpeg?alt=media&token=3b98aadc-277e-4cdd-aa83-658947c643a3","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/googlemaps_1_mask.jpg?alt=media&token=c398ebe0-c899-4cea-837f-72820d77b509","")
     )
 
     private val whatsappUsoGeneralExplanation = listOf(

@@ -1,7 +1,9 @@
 package com.example.proyectofinal.Fragments
 
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -14,6 +16,7 @@ import androidx.navigation.ui.NavigationUI
 import com.bumptech.glide.Glide
 import com.example.proyectofinal.ColorTool
 import com.example.proyectofinal.R
+import java.net.URL
 import kotlin.properties.Delegates
 
 
@@ -50,6 +53,8 @@ class FragmentExplanation : Fragment() {
         Glide.with(this).load(steps[position].stepMask).centerCrop().into(maskImage)
         position+=1
 
+        //crear bitmap
+
         setHasOptionsMenu(true)
 
         v.setOnTouchListener(fun(v: View, event: MotionEvent): Boolean {
@@ -65,12 +70,14 @@ class FragmentExplanation : Fragment() {
                         ct.closeMatch(Color.YELLOW, touchColor, tolerance) -> {
                             if(position<steps.size) {
                                 v.startAnimation(animation)
-                                imageId = context?.resources?.getIdentifier(steps[position].stepImage,"drawable",requireContext().packageName)!!
-                                stepImage.setImageResource(imageId)
+                               // imageId = context?.resources?.getIdentifier(steps[position].stepImage,"drawable",requireContext().packageName)!!
+                               // stepImage.setImageResource(imageId)
 
-                                maskId = context?.resources?.getIdentifier(steps[position].stepMask, "drawable",requireContext().packageName)!!
-                                maskImage.setImageResource(maskId)
+                                //maskId = context?.resources?.getIdentifier(steps[position].stepMask, "drawable",requireContext().packageName)!!
+                                //maskImage.setImageResource(maskId)
 
+                                Glide.with(this).load(steps[position].stepImage).centerCrop().into(stepImage)
+                                Glide.with(this).load(steps[position].stepMask).centerCrop().into(maskImage)
                                 position+=1
                             }
                         }
@@ -87,19 +94,30 @@ class FragmentExplanation : Fragment() {
     }
 
     private fun getHotspotColor (hotspotId:Int, x:Int, y:Int): Int {
-        return when (val img = v.findViewById<ImageView>(hotspotId)) {
+        return when (val imgUri = Uri.parse("https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/googlemaps_1_mask.jpg?alt=media&token=c398ebe0-c899-4cea-837f-72820d77b509")/*steps[position].stepMask*/) {
             null -> {
                 Log.d ("ImageAreasActivity", "Hot spot image not found")
                 0
             }
             else -> {
-                img.isDrawingCacheEnabled = true
-                val hotspots = Bitmap.createBitmap(img.drawingCache)
+
+                //val hotspots = BitmapFactory.decodeStream(img.openConnection().getInputStream())
+                val imgView = v.findViewById<ImageView>(R.id.maskImage)
+                var hotspots = Bitmap.createBitmap(imgView.width, imgView.height, Bitmap.Config.ALPHA_8)
+                Glide.with(this)
+                        .asBitmap()
+                        .load(imgUri)
+                        .into(imgView.width, imgView.height)
+                        .get()
+
+                //img.isDrawingCacheEnabled = true
+                //img.buildDrawingCache()
+                //val hotspots = Bitmap.createBitmap(img.drawingCache)
                 if (hotspots == null) {
                     Log.d ("ImageAreasActivity", "Hot spot bitmap was not created")
                     0
                 } else {
-                    img.isDrawingCacheEnabled = false
+                    //img.isDrawingCacheEnabled = false
                     hotspots.getPixel(x, y)
                 }
             }
