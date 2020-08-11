@@ -1,8 +1,12 @@
 package com.example.proyectofinal.Fragments
 
+import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -10,10 +14,14 @@ import android.view.*
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
 import com.example.proyectofinal.ColorTool
 import com.example.proyectofinal.R
 import java.net.URL
@@ -32,6 +40,7 @@ class FragmentExplanation : Fragment() {
     private var maskId by Delegates.notNull<Int>()
 
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -46,24 +55,26 @@ class FragmentExplanation : Fragment() {
         maskImage = v.findViewById(R.id.maskImage)
 
         //imageId = context?.resources?.getIdentifier(steps[position].stepImage,"drawable", requireContext().packageName)!!
-        Glide.with(this).load(steps[position].stepImage).centerCrop().into(stepImage)
         //stepImage.setImageResource(imageId)
         //maskId = context?.resources?.getIdentifier(steps[position].stepMask,"drawable", requireContext().packageName)!!
         //maskImage.setImageResource(maskId)
         Glide.with(this).load(steps[position].stepMask).centerCrop().into(maskImage)
+        Glide.with(this).load(steps[position].stepImage).centerCrop().into(stepImage)
         position+=1
 
         //crear bitmap
 
         setHasOptionsMenu(true)
 
-        v.setOnTouchListener(fun(v: View, event: MotionEvent): Boolean {
+        stepImage.setOnTouchListener(fun(v: View, event: MotionEvent): Boolean {
             val action = event.action
             val evX = event.x.toInt()
             val evY = event.y.toInt()
             val touchColor: Int = getHotspotColor(R.id.maskImage, evX, evY)
             val ct = ColorTool()
             val tolerance = 25
+
+            Log.d(TAG, "Pixel touched: $evX $evY")
             when(action){
                 MotionEvent.ACTION_UP ->    {
                     when {
@@ -94,6 +105,11 @@ class FragmentExplanation : Fragment() {
     }
 
     private fun getHotspotColor (hotspotId:Int, x:Int, y:Int): Int {
+        val bitmap = v.findViewById<ImageView>(hotspotId).drawable.toBitmap()
+        val pixel = bitmap.getPixel(x,y)
+
+        return pixel
+        /*
         return when (val imgUri = Uri.parse("https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/googlemaps_1_mask.jpg?alt=media&token=c398ebe0-c899-4cea-837f-72820d77b509")/*steps[position].stepMask*/) {
             null -> {
                 Log.d ("ImageAreasActivity", "Hot spot image not found")
@@ -122,6 +138,7 @@ class FragmentExplanation : Fragment() {
                 }
             }
         }
+         */
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
