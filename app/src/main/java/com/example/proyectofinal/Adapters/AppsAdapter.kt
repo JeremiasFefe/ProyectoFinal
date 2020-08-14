@@ -18,7 +18,7 @@ class AppsAdapter(private val context: Context, private val apps: List<App>, pri
     }
 
     override fun getItemCount(): Int {
-        return apps.count()
+        return apps.size
     }
 
     override fun onBindViewHolder(holder: AppHolder, position: Int) {
@@ -26,7 +26,7 @@ class AppsAdapter(private val context: Context, private val apps: List<App>, pri
     }
 
     inner class AppHolder(itemView: View, val itemClick: (App) -> Unit) : RecyclerView.ViewHolder(itemView){
-        private val appImage: ImageView = itemView.findViewById(R.id.stepImage)
+        private val appImage: ImageView = itemView.findViewById(R.id.imgStep)
         private val appName:TextView = itemView.findViewById(R.id.txtStepDesc)
 
         fun bindApp(app:App,context: Context){

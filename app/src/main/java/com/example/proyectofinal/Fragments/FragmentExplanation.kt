@@ -2,12 +2,7 @@ package com.example.proyectofinal.Fragments
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -19,12 +14,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
 import com.example.proyectofinal.ColorTool
 import com.example.proyectofinal.R
-import java.net.URL
 import kotlin.properties.Delegates
 
 
@@ -51,8 +42,8 @@ class FragmentExplanation : Fragment() {
         val functionalitySelected = args.functionality
         val steps = functionalitySelected.explanationSteps
 
-        stepImage = v.findViewById(R.id.stepImage)
-        maskImage = v.findViewById(R.id.maskImage)
+        stepImage = v.findViewById(R.id.imgStep)
+        maskImage = v.findViewById(R.id.imgMask)
 
         //imageId = context?.resources?.getIdentifier(steps[position].stepImage,"drawable", requireContext().packageName)!!
         //stepImage.setImageResource(imageId)
@@ -70,7 +61,7 @@ class FragmentExplanation : Fragment() {
             val action = event.action
             val evX = event.x.toInt()
             val evY = event.y.toInt()
-            val touchColor: Int = getHotspotColor(R.id.maskImage, evX, evY)
+            val touchColor: Int = getHotspotColor(R.id.imgMask, evX, evY)
             val ct = ColorTool()
             val tolerance = 25
 

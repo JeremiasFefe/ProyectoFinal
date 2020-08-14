@@ -19,32 +19,38 @@ import com.example.proyectofinal.Services.DataService
  */
 class FragmentMenu : Fragment() {
     private lateinit var v: View
-    private lateinit var adapter: AppsAdapter
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var appsAdapter: AppsAdapter
+    private lateinit var recApps: RecyclerView
+    private lateinit var gridLayoutManager: GridLayoutManager
 
     @SuppressLint("RestrictedApi")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_menu, container, false)
 
-        recyclerView = v.findViewById(R.id.txtDescrMenu)
+        recApps = v.findViewById(R.id.recApps)
 
-        recyclerView.setHasFixedSize(true)
+
+        return v
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        recApps.setHasFixedSize(true)
         var spanCount = 2
 
-        recyclerView.layoutManager = GridLayoutManager(activity,spanCount)
+        gridLayoutManager = GridLayoutManager(context,spanCount)
+        recApps.layoutManager = gridLayoutManager
 
-        adapter = context?.let {
-            AppsAdapter(it,DataService.apps){app->
-                val action = FragmentMenuDirections.actionMenuFragmentToFunctionalitiesFragment(app)
-                Navigation.findNavController(v).navigate(action)
-            }
-        }!!
+        appsAdapter = AppsAdapter(requireContext(),DataService.apps){app->
+            val action = FragmentMenuDirections.actionMenuFragmentToFunctionalitiesFragment(app)
+            Navigation.findNavController(v).navigate(action)
+        }
 
-        recyclerView.adapter = adapter
+        recApps.adapter = appsAdapter
 
         setHasOptionsMenu(true)
-        return v
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

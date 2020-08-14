@@ -19,7 +19,7 @@ class FuncsAdapter(private val context: Context, private val funcs:List<Function
     }
 
     override fun getItemCount(): Int {
-        return funcs.count()
+        return funcs.size
     }
 
     override fun onBindViewHolder(holder: FuncHolder, position: Int) {
