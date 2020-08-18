@@ -51,15 +51,22 @@ class FragmentExplanation : Fragment() {
         stepImage = v.findViewById(R.id.imgStep)
         maskImage = v.findViewById(R.id.imgMask)
 
-        //imageId = context?.resources?.getIdentifier(steps[position].stepImage,"drawable", requireContext().packageName)!!
-        //stepImage.setImageResource(imageId)
-        //maskId = context?.resources?.getIdentifier(steps[position].stepMask,"drawable", requireContext().packageName)!!
-        //maskImage.setImageResource(maskId)
         Glide.with(this).load(steps[position].stepMask).centerCrop().into(maskImage)
-        Glide.with(this).load(steps[position].stepImage).centerCrop().into(stepImage)
-        position+=1
 
-        //crear bitmap
+        Glide.with(this).load(steps[position].stepImage).centerCrop().listener(object : RequestListener<Drawable> {
+            override fun onResourceReady(resource: Drawable?, model: Any?, target: com.bumptech.glide.request.target.Target<Drawable>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
+                loadingCircle.visibility = View.GONE
+                Log.d("test","ready")
+                return false
+            }
+            override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+                Log.d("test","failed")
+                loadingCircle.visibility = View.GONE
+                return false
+            }
+        }).into(stepImage)
+
+        position+=1
 
         setHasOptionsMenu(true)
 
@@ -78,32 +85,22 @@ class FragmentExplanation : Fragment() {
                         ct.closeMatch(Color.YELLOW, touchColor, tolerance) -> {
                             if(position<steps.size) {
                                 v.startAnimation(animation)
-                               // imageId = context?.resources?.getIdentifier(steps[position].stepImage,"drawable",requireContext().packageName)!!
-                               // stepImage.setImageResource(imageId)
-
-                                //maskId = context?.resources?.getIdentifier(steps[position].stepMask, "drawable",requireContext().packageName)!!
-                                //maskImage.setImageResource(maskId)
-
                                 //Glide.with(this).load(steps[position].stepImage).centerCrop().into(stepImage)
+                                Glide.with(this).load(steps[position].stepMask).centerCrop().into(maskImage)
 
                                 Glide.with(this).load(steps[position].stepImage).centerCrop().listener(object : RequestListener<Drawable> {
-
-
-
                                     override fun onResourceReady(resource: Drawable?, model: Any?, target: com.bumptech.glide.request.target.Target<Drawable>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
-                                        loadingCircle.visibility = View.INVISIBLE
+                                        loadingCircle.visibility = View.GONE
+                                        Log.d("test","ready")
                                         return false
-
                                     }
-
                                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                                        loadingCircle.visibility = View.INVISIBLE
+                                        Log.d("test","failed")
+                                        loadingCircle.visibility = View.GONE
                                         return false
-
                                     }
                                 }).into(stepImage)
 
-                                Glide.with(this).load(steps[position].stepMask).centerCrop().into(maskImage)
                                 position+=1
                             }
                         }
@@ -111,49 +108,15 @@ class FragmentExplanation : Fragment() {
                     }
                 }
             }
-
             return true
          })
-
         return v
-
     }
 
     private fun getHotspotColor (hotspotId:Int, x:Int, y:Int): Int {
         val bitmap = v.findViewById<ImageView>(hotspotId).drawable.toBitmap()
         val pixel = bitmap.getPixel(x,y)
-
         return pixel
-        /*
-        return when (val imgUri = Uri.parse("https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/googlemaps_1_mask.jpg?alt=media&token=c398ebe0-c899-4cea-837f-72820d77b509")/*steps[position].stepMask*/) {
-            null -> {
-                Log.d ("ImageAreasActivity", "Hot spot image not found")
-                0
-            }
-            else -> {
-
-                //val hotspots = BitmapFactory.decodeStream(img.openConnection().getInputStream())
-                val imgView = v.findViewById<ImageView>(R.id.maskImage)
-                var hotspots = Bitmap.createBitmap(imgView.width, imgView.height, Bitmap.Config.ALPHA_8)
-                Glide.with(this)
-                        .asBitmap()
-                        .load(imgUri)
-                        .into(imgView.width, imgView.height)
-                        .get()
-
-                //img.isDrawingCacheEnabled = true
-                //img.buildDrawingCache()
-                //val hotspots = Bitmap.createBitmap(img.drawingCache)
-                if (hotspots == null) {
-                    Log.d ("ImageAreasActivity", "Hot spot bitmap was not created")
-                    0
-                } else {
-                    //img.isDrawingCacheEnabled = false
-                    hotspots.getPixel(x, y)
-                }
-            }
-        }
-         */
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
