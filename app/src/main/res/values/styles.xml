@@ -10,6 +10,9 @@
         <item name="android:buttonStyle">@style/MontserratButtonStyle</item>
 
     </style>
+    <style name="Theme.MyApp.Splash" parent="Theme.MaterialComponents.Light.NoActionBar">
+    </style>
+
     <style name="MontserratTextViewStyle" parent="android:Widget.TextView">
         <item name="android:fontFamily">@font/montserrat</item>
     </style>

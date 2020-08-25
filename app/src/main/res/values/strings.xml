@@ -12,4 +12,5 @@
     <string name="contact">Contacto</string>
     <string name="bienvenido">Bienvenido</string>
     <string name="ajustes">Ajustes</string>
+    <string name="info_aprendapp">AprendApp es una app móvil que se encarga de enseñar el funcionamiento de aplicaciones básicas, por ejemplo WhatsApp, Google Maps, Google Chrome, Netflix, etc. Explicando de una forma simple, fácil, dinámica e intuitiva. Nuestra aplicación está apuntada a personas que no dominan el manejo de los dispositivos inteligentes, más concretamente el uso de aplicaciones dentro de ellos.</string>
 </resources>
