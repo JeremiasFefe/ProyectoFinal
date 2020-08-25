@@ -30,4 +30,19 @@
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription=" " />
 
+    <com.agrawalsuneet.loaderspack.loaders.RingAndCircleLoader
+        android:id="@+id/loadingCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:ringandcircle_animDuration="800"
+        app:ringandcircle_circleColor="@color/colorAccent"
+        app:ringandcircle_circleRadius="12dp"
+        app:ringandcircle_ringColor="@color/colorAccent"
+        app:ringandcircle_ringRadius="40dp"
+        app:ringandcircle_ringWidth="8dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

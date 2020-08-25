@@ -1,6 +1,10 @@
 package com.example.proyectofinal.Fragments
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
@@ -13,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectofinal.Adapters.FuncsAdapter
 import com.example.proyectofinal.R
 import com.example.proyectofinal.Services.DataService
+
 
 /**
  * A simple [Fragment] subclass.
@@ -47,15 +52,27 @@ class FragmentFunctionalities : Fragment() {
 
         val appSelected = FragmentFunctionalitiesArgs.fromBundle(requireArguments()).appSelected
         appName = appSelected.name.toString()
-        funcsAdapter = FuncsAdapter(requireContext(),DataService.getFunctionalities(appName)){
-            Functionality -> val action = FragmentFunctionalitiesDirections.actionFunctionalitiesFragmentToExplanationFragment(Functionality, appName)
-            Navigation.findNavController(v).navigate(action)
+        funcsAdapter = FuncsAdapter(requireContext(), DataService.getFunctionalities(appName)){ Functionality ->
+
+            if(Functionality.title == "Descargar"){
+                try {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${appSelected.packageName}")))
+                } catch (anfe: ActivityNotFoundException) {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=${appSelected.packageName}")))
+                }
+            }else{
+                val action = FragmentFunctionalitiesDirections.actionFunctionalitiesFragmentToExplanationFragment(Functionality, appName)
+                Navigation.findNavController(v).navigate(action)
+            }
+
+
+
         }
 
         recFuncs.adapter = funcsAdapter
 
         txtFunc.text = appSelected.name
-        val resourceId = v.resources.getIdentifier(appSelected.image,"drawable", requireContext().packageName)
+        val resourceId = v.resources.getIdentifier(appSelected.image, "drawable", requireContext().packageName)
         imgAppLogo.setImageResource(resourceId)
 
         setHasOptionsMenu(true)
@@ -64,12 +81,12 @@ class FragmentFunctionalities : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.main_menu,menu)
+        inflater.inflate(R.menu.main_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        return NavigationUI.onNavDestinationSelected(item,requireView().findNavController())
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
                 || super.onOptionsItemSelected(item)
 
     }

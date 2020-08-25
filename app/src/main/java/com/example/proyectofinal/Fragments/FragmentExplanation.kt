@@ -56,11 +56,9 @@ class FragmentExplanation : Fragment() {
         Glide.with(this).load(steps[position].stepImage).centerCrop().listener(object : RequestListener<Drawable> {
             override fun onResourceReady(resource: Drawable?, model: Any?, target: com.bumptech.glide.request.target.Target<Drawable>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
                 loadingCircle.visibility = View.GONE
-                Log.d("test","ready")
                 return false
             }
             override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                Log.d("test","failed")
                 loadingCircle.visibility = View.GONE
                 return false
             }
@@ -85,17 +83,17 @@ class FragmentExplanation : Fragment() {
                         ct.closeMatch(Color.YELLOW, touchColor, tolerance) -> {
                             if(position<steps.size) {
                                 v.startAnimation(animation)
+                                loadingCircle.visibility = View.VISIBLE
+
                                 //Glide.with(this).load(steps[position].stepImage).centerCrop().into(stepImage)
                                 Glide.with(this).load(steps[position].stepMask).centerCrop().into(maskImage)
 
                                 Glide.with(this).load(steps[position].stepImage).centerCrop().listener(object : RequestListener<Drawable> {
                                     override fun onResourceReady(resource: Drawable?, model: Any?, target: com.bumptech.glide.request.target.Target<Drawable>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
                                         loadingCircle.visibility = View.GONE
-                                        Log.d("test","ready")
                                         return false
                                     }
                                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                                        Log.d("test","failed")
                                         loadingCircle.visibility = View.GONE
                                         return false
                                     }

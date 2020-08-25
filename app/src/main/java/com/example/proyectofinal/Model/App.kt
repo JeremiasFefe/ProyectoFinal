@@ -3,9 +3,10 @@ package com.example.proyectofinal.Model
 import android.os.Parcel
 import android.os.Parcelable
 
-class App(val name: String?, val image: String?) : Parcelable {
+class App(val name: String?, val image: String?, val packageName:String?) : Parcelable {
 
     constructor(source: Parcel) : this(
+            source.readString(),
             source.readString(),
             source.readString()
     )
@@ -15,6 +16,7 @@ class App(val name: String?, val image: String?) : Parcelable {
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
         writeString(name)
         writeString(image)
+        writeString(packageName)
     }
 
     companion object {
