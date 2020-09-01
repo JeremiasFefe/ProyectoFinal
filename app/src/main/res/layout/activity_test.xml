@@ -3,20 +3,4 @@
     android:id="@+id/my_frame"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <ImageView
-        android:id="@+id/imgMask"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:scaleType="fitCenter"
-        android:visibility="invisible"
-        android:src="@drawable/p2_ship_mask"
-        />
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:scaleType="fitCenter"
-        android:src="@drawable/p2_ship_default"
-        />
-
 </FrameLayout>
