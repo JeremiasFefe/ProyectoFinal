@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/contacto"
+        android:text="@string/contact"
         android:textColor="@color/colorBlack"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Hacé click en los íconos para visitarnos en las redes!"
+        android:text="@string/subtitle_contact"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +53,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/ic_logoig" />
+            tools:srcCompat="@drawable/ic_logoig"
+            android:contentDescription="@string/instagram_logo" />
 
     </androidx.cardview.widget.CardView>
 
@@ -80,7 +81,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/ic_logofb" />
+            tools:srcCompat="@drawable/ic_logofb"
+            android:contentDescription="@string/facebook_logo" />
     </androidx.cardview.widget.CardView>
 
 

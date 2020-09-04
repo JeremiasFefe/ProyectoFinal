@@ -28,7 +28,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/pregunta_bienvenida"
+        android:text="@string/welcome_question"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
         android:textSize="24sp"
@@ -46,5 +46,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="Logo" />
+        android:contentDescription="@string/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
