@@ -18,6 +18,7 @@ class FragmentInfo : Fragment() {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_info, container, false)
 
+
         return v
 
     }

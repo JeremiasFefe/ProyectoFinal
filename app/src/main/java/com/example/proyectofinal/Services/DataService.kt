@@ -16,7 +16,7 @@ object DataService {
             ExplanationStep("","","","")
     )
     private val mapsBarraBuscadora = listOf(
-            ExplanationStep("1","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/giftest.gif?alt=media&token=bc119553-2b49-46d0-96a9-fc4c8feb3c7f","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/googlemaps_1_mask.jpg?alt=media&token=c398ebe0-c899-4cea-837f-72820d77b509",""),
+            ExplanationStep("1","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/prueba_gif.gif?alt=media&token=8ad8c0fc-4c32-4f72-8f31-e9a3d687ad03","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/googlemaps_1_mask.jpg?alt=media&token=c398ebe0-c899-4cea-837f-72820d77b509",""),
             ExplanationStep("2","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/googlemaps_1.jpeg?alt=media&token=3b98aadc-277e-4cdd-aa83-658947c643a3","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/googlemaps_1_mask.jpg?alt=media&token=c398ebe0-c899-4cea-837f-72820d77b509","")
     )
 
