@@ -1,6 +1,7 @@
 package com.example.proyectofinal.Fragments
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.ContentValues.TAG
 import android.graphics.Color
 import android.graphics.drawable.Drawable
@@ -19,7 +20,10 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.proyectofinal.ColorTool
+import com.example.proyectofinal.Model.Functionality
 import com.example.proyectofinal.R
+import com.kcrimi.tooltipdialog.ToolTipDialog
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_explanation.*
 import javax.sql.DataSource
 import kotlin.properties.Delegates
@@ -35,7 +39,7 @@ class FragmentExplanation : Fragment() {
     private lateinit var maskImage: ImageView
     private var imageId by Delegates.notNull<Int>()
     private var maskId by Delegates.notNull<Int>()
-
+    private lateinit var functionalitySelected:Functionality
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +49,7 @@ class FragmentExplanation : Fragment() {
 
         val animation: Animation = AnimationUtils.loadAnimation(context,R.anim.fadein)
         val args = FragmentExplanationArgs.fromBundle(requireArguments())
-        val functionalitySelected = args.functionality
+        functionalitySelected = args.functionality
         val steps = functionalitySelected.explanationSteps
 
         stepImage = v.findViewById(R.id.imgStep)
@@ -119,13 +123,32 @@ class FragmentExplanation : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.main_menu,menu)
+        inflater.inflate(R.menu.menu_explanation,menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val steps = functionalitySelected.explanationSteps
+        return when (item.itemId) {
+            R.id.fragmentInfo -> {
+                context?.let {
+                    ToolTipDialog(it, requireActivity())
+                            .title(steps[position].stepDescription)
+                            //.content(steps[position].stepDescription) // Body content
+                            .pointTo(1000, 350)
+                            .show()
+                }
+                true
 
-        return NavigationUI.onNavDestinationSelected(item,requireView().findNavController())
-                || super.onOptionsItemSelected(item)
+            }
+            else ->
+                super.onOptionsItemSelected(item)
+        }
+
+
+
+
+         // Build and show the tooltip
+
 
     }
 }

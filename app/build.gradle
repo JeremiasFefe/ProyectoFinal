@@ -57,6 +57,8 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     implementation 'com.agrawalsuneet.androidlibs:loaderspack:1.2.3'
+
+    implementation 'com.kcrimi.tooltipdialog:tooltipdialog:1.1.0'
 }
 repositories {
     mavenCentral()
