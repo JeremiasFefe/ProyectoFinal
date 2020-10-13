@@ -131,11 +131,13 @@ class FragmentExplanation : Fragment() {
         return when (item.itemId) {
             R.id.fragmentInfo -> {
                 context?.let {
-                    ToolTipDialog(it, requireActivity())
-                            .title(steps[position].stepDescription)
-                            //.content(steps[position].stepDescription) // Body content
-                            .pointTo(1000, 350)
-                            .show()
+                    if(position<=steps.size) {
+                        ToolTipDialog(it, requireActivity())
+                                .title(steps[position-1].stepDescription)
+                                //.content(steps[position].stepDescription) // Body content
+                                .pointTo(1000, 350)
+                                .show()
+                    }
                 }
                 true
 
