@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/helpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:clickable="true"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:fabCustomSize="75dp"
+        app:fabSize="auto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxImageSize="70dp"
+        app:srcCompat="@drawable/ic_icons8_info" />
+
     <ImageView
         android:id="@+id/imgStep"
         android:layout_width="0dp"
@@ -25,8 +40,8 @@
         android:contentDescription="@string/empty"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgStep"
+        app:layout_constraintStart_toStartOf="@+id/imgStep"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.agrawalsuneet.loaderspack.loaders.RingAndCircleLoader
@@ -42,7 +57,7 @@
         app:ringandcircle_circleRadius="12dp"
         app:ringandcircle_ringColor="@color/colorAccent"
         app:ringandcircle_ringRadius="40dp"
-        app:ringandcircle_ringWidth="8dp" >
+        app:ringandcircle_ringWidth="8dp">
 
     </com.agrawalsuneet.loaderspack.loaders.RingAndCircleLoader>
 

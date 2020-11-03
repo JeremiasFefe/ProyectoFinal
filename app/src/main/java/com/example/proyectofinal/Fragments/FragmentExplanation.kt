@@ -1,11 +1,13 @@
 package com.example.proyectofinal.Fragments
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.ContentValues.TAG
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.RelativeSizeSpan
 import android.util.Log
 import android.view.*
 import android.view.animation.Animation
@@ -13,17 +15,16 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.load.resource.gif.GifDrawable
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.proyectofinal.ColorTool
 import com.example.proyectofinal.Model.Functionality
 import com.example.proyectofinal.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.kcrimi.tooltipdialog.ToolTipDialog
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_explanation.*
 import javax.sql.DataSource
 import kotlin.properties.Delegates
@@ -40,6 +41,7 @@ class FragmentExplanation : Fragment() {
     private var imageId by Delegates.notNull<Int>()
     private var maskId by Delegates.notNull<Int>()
     private lateinit var functionalitySelected:Functionality
+    private lateinit var helpButton: FloatingActionButton
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -47,23 +49,28 @@ class FragmentExplanation : Fragment() {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_explanation, container, false)
 
-        val animation: Animation = AnimationUtils.loadAnimation(context,R.anim.fadein)
+        val animation: Animation = AnimationUtils.loadAnimation(context, R.anim.fadein)
         val args = FragmentExplanationArgs.fromBundle(requireArguments())
         functionalitySelected = args.functionality
         val steps = functionalitySelected.explanationSteps
 
         stepImage = v.findViewById(R.id.imgStep)
         maskImage = v.findViewById(R.id.imgMask)
+        helpButton = v.findViewById(R.id.helpButton)
 
         Glide.with(this).load(steps[position].stepMask).centerCrop().into(maskImage)
 
         Glide.with(this).load(steps[position].stepImage).centerCrop().listener(object : RequestListener<Drawable> {
-            override fun onResourceReady(resource: Drawable?, model: Any?, target: com.bumptech.glide.request.target.Target<Drawable>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
+            override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
                 loadingCircle.visibility = View.GONE
                 return false
             }
-            override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+
+            override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
                 loadingCircle.visibility = View.GONE
+                if (resource is GifDrawable) {
+                    resource.setLoopCount(1)
+                }
                 return false
             }
         }).into(stepImage)
@@ -81,11 +88,11 @@ class FragmentExplanation : Fragment() {
             val tolerance = 25
 
             Log.d(TAG, "Pixel touched: $evX $evY")
-            when(action){
-                MotionEvent.ACTION_UP ->    {
+            when (action) {
+                MotionEvent.ACTION_UP -> {
                     when {
                         ct.closeMatch(Color.YELLOW, touchColor, tolerance) -> {
-                            if(position<steps.size) {
+                            if (position < steps.size) {
                                 v.startAnimation(animation)
                                 loadingCircle.visibility = View.VISIBLE
 
@@ -93,17 +100,21 @@ class FragmentExplanation : Fragment() {
                                 Glide.with(this).load(steps[position].stepMask).centerCrop().into(maskImage)
 
                                 Glide.with(this).load(steps[position].stepImage).centerCrop().listener(object : RequestListener<Drawable> {
-                                    override fun onResourceReady(resource: Drawable?, model: Any?, target: com.bumptech.glide.request.target.Target<Drawable>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
-                                        loadingCircle.visibility = View.GONE
-                                        return false
-                                    }
                                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
                                         loadingCircle.visibility = View.GONE
                                         return false
                                     }
+
+                                    override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
+                                        loadingCircle.visibility = View.GONE
+                                        if (resource is GifDrawable) {
+                                            resource.setLoopCount(1)
+                                        }
+                                        return false
+                                    }
                                 }).into(stepImage)
 
-                                position+=1
+                                position += 1
                             }
                         }
 
@@ -111,19 +122,38 @@ class FragmentExplanation : Fragment() {
                 }
             }
             return true
-         })
+        })
+        helpButton.setOnClickListener {
+            if (position <= steps.size) {
+                context?.let { it1 ->
+                    ToolTipDialog(it1,requireActivity()).title(steps[position - 1].stepDescription)
+                            //.content(steps[position].stepDescription) // Body content
+                            .setYPosition(760)
+                            .show()
+                }
+
+            }
+        }
+
         return v
     }
 
-    private fun getHotspotColor (hotspotId:Int, x:Int, y:Int): Int {
+    private fun getHotspotColor(hotspotId: Int, x: Int, y: Int): Int {
         val bitmap = v.findViewById<ImageView>(hotspotId).drawable.toBitmap()
-        val pixel = bitmap.getPixel(x,y)
+        val pixel = bitmap.getPixel(x, y)
         return pixel
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_explanation,menu)
+        inflater.inflate(R.menu.menu_explanation, menu)
+        for (i in 0 until menu.size()) {
+            val item = menu.getItem(i)
+            val spanString = SpannableString(menu.getItem(i).title.toString())
+            val end = spanString.length
+            spanString.setSpan(RelativeSizeSpan(1.3f), 0, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            item.title = spanString
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -131,9 +161,9 @@ class FragmentExplanation : Fragment() {
         return when (item.itemId) {
             R.id.fragmentInfo -> {
                 context?.let {
-                    if(position<=steps.size) {
+                    if (position <= steps.size) {
                         ToolTipDialog(it, requireActivity())
-                                .title(steps[position-1].stepDescription)
+                                .title(steps[position - 1].stepDescription)
                                 //.content(steps[position].stepDescription) // Body content
                                 .pointTo(1000, 350)
                                 .show()

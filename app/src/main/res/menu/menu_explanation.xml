@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- -<item
         android:id="@+id/fragmentSettings"
-        android:title="@string/settings" /><!- -->
+        android:title="@string/settings" />
     <item
         android:id="@+id/fragmentInfo"
-        android:title="@string/info"
-        app:showAsAction="always" />
+        android:title="@string/ayuda"
+        app:showAsAction="always" /><!- -->
 </menu>
