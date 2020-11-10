@@ -58,7 +58,6 @@ object DataService {
 
     private val youtubeFunc = listOf(
             Functionality("Buscar video", youtubeBuscarVideo),
-            Functionality("Compartir",whatsappUsoGeneralExplanation),
             Functionality("Descargar", blankStepsList)
     )
 

@@ -57,7 +57,7 @@ class FragmentExplanation : Fragment() {
         stepImage = v.findViewById(R.id.imgStep)
         maskImage = v.findViewById(R.id.imgMask)
         helpButton = v.findViewById(R.id.helpButton)
-
+        helpButton.hide()
         Glide.with(this).load(steps[position].stepMask).centerCrop().into(maskImage)
 
         Glide.with(this).load(steps[position].stepImage).centerCrop().listener(object : RequestListener<Drawable> {
@@ -71,6 +71,7 @@ class FragmentExplanation : Fragment() {
                 if (resource is GifDrawable) {
                     resource.setLoopCount(1)
                 }
+                helpButton.show()
                 return false
             }
         }).into(stepImage)
@@ -86,6 +87,8 @@ class FragmentExplanation : Fragment() {
             val touchColor: Int = getHotspotColor(R.id.imgMask, evX, evY)
             val ct = ColorTool()
             val tolerance = 25
+
+            helpButton.hide()
 
             Log.d(TAG, "Pixel touched: $evX $evY")
             when (action) {
@@ -110,6 +113,7 @@ class FragmentExplanation : Fragment() {
                                         if (resource is GifDrawable) {
                                             resource.setLoopCount(1)
                                         }
+                                        helpButton.show()
                                         return false
                                     }
                                 }).into(stepImage)
