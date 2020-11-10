@@ -20,7 +20,7 @@ object DataService {
             ExplanationStep("2","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Google%20Maps%2FBuscar%20Algo%20%2F2.gif?alt=media&token=b3d89979-74de-49fb-a31a-5aa2ecb3940e","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Google%20Maps%2FBuscar%20Algo%20%2FMasks%2Fgooglemaps_barrabuscadora_1_mask.jpg?alt=media&token=7ab5ae7a-0a68-486e-85eb-7e0b3217ccfe","Seleccioná alguno de los resultados de tu búsqueda"),
             ExplanationStep("3","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Google%20Maps%2FBuscar%20Algo%20%2F3.gif?alt=media&token=b4d7a8a1-b338-40eb-85a9-f8e6bae4bb59","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Google%20Maps%2FBuscar%20Algo%20%2FMasks%2Fgooglemaps_barrabuscadora_7_mask.jpg?alt=media&token=2fee94ac-daec-47f4-8a19-18c3cea5b132","Apretá en Indicaciones para conocer como ir"),
             ExplanationStep("4","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Google%20Maps%2FBuscar%20Algo%20%2F4.gif?alt=media&token=ebafca0f-2178-4e11-ac96-53ecf16c5810","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Google%20Maps%2FBuscar%20Algo%20%2FMasks%2Fgooglemaps_iniciarruta_1_mask.jpg?alt=media&token=22e2899e-d2f1-486d-a869-f9c7ce11d48d","Apretá en iniciar para que comience el recorrido"),
-            ExplanationStep("7","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Google%20Maps%2FBuscar%20Algo%20%2F7.gif?alt=media&token=cc5a2252-d1a9-4b88-82cd-ce7d71ac5fb4","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/mask%20blanca.png?alt=media&token=45b6180c-e31b-47e2-b16d-304d65a556c6","Prestá atención a las indicaciones")
+            ExplanationStep("5","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Google%20Maps%2FBuscar%20Algo%20%2F7.gif?alt=media&token=cc5a2252-d1a9-4b88-82cd-ce7d71ac5fb4","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/mask%20blanca.png?alt=media&token=45b6180c-e31b-47e2-b16d-304d65a556c6","Prestá atención a las indicaciones")
 
     )
 
@@ -36,9 +36,17 @@ object DataService {
             ExplanationStep("1","test_image","mask1", "este es el primer texto"),
             ExplanationStep("2","whatsapp2", "mask2", "segundo"),
             ExplanationStep("3","test_image", "mask1", "tercero"),
-            ExplanationStep("2","whatsapp2", "mask2", "segundo")
+            ExplanationStep("4","whatsapp2", "mask2", "segundo")
     )
-
+    private val youtubeBuscarVideo = listOf(
+            ExplanationStep("1","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Youtube%2FBuscar%20un%20video%2FGifs%2F1.gif?alt=media&token=b152c35d-7501-4c2d-88b8-b7635a26659a","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Youtube%2FBuscar%20un%20video%2FMasks%2F1.jpg?alt=media&token=6d867704-b855-49fa-bb9b-e0e5ff69da66","Apretá en la lupa para buscar"),
+            ExplanationStep("2","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Youtube%2FBuscar%20un%20video%2FGifs%2F2.gif?alt=media&token=f9da9d00-ff08-411c-bedd-34649a3d3ddc","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Youtube%2FBuscar%20un%20video%2FMasks%2F2.jpg?alt=media&token=b9741203-a57e-4d8f-b023-6eb317a01c8c","Escribí lo que quieras buscar"),
+            ExplanationStep("3","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Youtube%2FBuscar%20un%20video%2FGifs%2F3.gif?alt=media&token=df42da07-a047-484d-8157-a666d0ac429e","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Youtube%2FBuscar%20un%20video%2FMasks%2F3.jpg?alt=media&token=aaf02233-be38-45d5-93f1-6fc6cb24d6f6","Elegí el resultado que quieras"),
+            ExplanationStep("4","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Youtube%2FBuscar%20un%20video%2FGifs%2F4.gif?alt=media&token=d7caf2a8-070f-448f-be79-eed482dc09c9","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Youtube%2FBuscar%20un%20video%2FMasks%2F4.jpg?alt=media&token=dc8a94e5-2773-4c64-911a-07b11be84e5e","Arribá podes ver el video"),
+            ExplanationStep("5","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Youtube%2FBuscar%20un%20video%2FGifs%2F5.gif?alt=media&token=ab974f81-865b-4a51-b0c9-2ff457feb481","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Youtube%2FBuscar%20un%20video%2FMasks%2F5.jpg?alt=media&token=c2b86a8f-de56-4a89-96b6-3ffe52e8828a","Podés ponerle me gusta o no me gusta"),
+            ExplanationStep("6","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Youtube%2FBuscar%20un%20video%2FGifs%2F6.gif?alt=media&token=afaf6404-d94e-4080-90f9-3d6879e46770","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Youtube%2FBuscar%20un%20video%2FMasks%2F6.jpg?alt=media&token=44fc9dd8-c5a0-4713-8859-e73101f0ec66","Podés compartirlo con quien vos quieras"),
+            ExplanationStep("7","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/Youtube%2FBuscar%20un%20video%2FGifs%2F7.gif?alt=media&token=7de38bf6-2360-4d5a-a31c-e675ce49337e","https://firebasestorage.googleapis.com/v0/b/aprendapp-7fba8.appspot.com/o/mask%20blanca.png?alt=media&token=45b6180c-e31b-47e2-b16d-304d65a556c6","Si querés ver más videos similares podés suscribirte")
+    )
     private val whatsappFunc = listOf(
             Functionality("Uso general", whatsappUsoGeneralExplanation),
             Functionality("Mandar mensaje",whatsappUsoGeneralExplanation),
@@ -49,9 +57,8 @@ object DataService {
 
 
     private val youtubeFunc = listOf(
-            Functionality("Uso general",whatsappUsoGeneralExplanation),
-            Functionality("Buscar video",whatsappUsoGeneralExplanation),
-            Functionality("Explorar",whatsappUsoGeneralExplanation),
+            Functionality("Buscar video", youtubeBuscarVideo),
+            Functionality("Compartir",whatsappUsoGeneralExplanation),
             Functionality("Descargar", blankStepsList)
     )
 
